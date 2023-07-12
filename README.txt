@@ -1,3 +1,7 @@
-THIS IS MY PORTFOLIO WEBSITE.
 
-GET TO KNOW ME AND CONNECT WITH ME.
+
+This my personal portfolio profile.
+
+
+
+Get to know me :-)
