@@ -48,23 +48,20 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Sort 0s, 1s and 2s</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>Given a linked list of 0s, 1s and 2s, The task is to sort and print it..</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
-                        <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
-                        </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                        <p>This is a simple implementation of the “Using a stable sort algorithm” approach for sorting a linked list containing only 0s, 1s, and 2s. 
+                            It may not be the most efficient implementation for large linked lists, but it should give you a good understanding of the basic idea.</p>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
-                        
                         
                             <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
                                 <p>class Node {</p>
@@ -73,23 +70,31 @@
                                     <p>Node(int data){this.data=data;}</p>
                                 <p>}</p>
                                 <p>/*Solution :*/</p>
-                                <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
+                                <p>class Solution { </p>
+                                    <p>public void sortList(Node head){ </p>
                                         <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
-                                            <p>fast=fast.next.next;</p>
+                                        <p>int[] count={0,0,0};</p>
+                                        <p>Node current=head;</p>
+                                        <p>while(current!=null){</p>
+                                            <p>count[current.data]++;
+                                            <p> current = current.next;</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
+                                        <p>current=head;</p>
+                                        <p>int i=0;</p>
+                                        <p>while (current != null) {</p>
+                                            <p>if (count[i] == 0)   i++;</p>
+                                            <p>else {</p>
+                                                <p>current.data = i;
+                                                   <p> count[i]--;
+                                                   <p> current = current.next;</p>
+                                            <p>}</p>
                                     <p>}</p>
                                 <p>}</p>
+                                
                                 <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <p>Time : O(n) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>

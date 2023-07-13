@@ -48,48 +48,50 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Link two linklists.</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>You are given two linked lists: list1 and list2 of sizes n and m respectively.
+                            <p>
+                            Remove list1's nodes from the ath node to the bth node, and put list2 in their place.
+                            
+                            Build the result list and return its head.</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
-                        <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
-                        </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                        <p>First we traverse the first list till a. Then we break from the first list and point to the second list. 
+                            After we finist traversing the entire second list we link back to the first. </p>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
-                        
                         
                             <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
-                                <p>class Node {</p>
+                                <p>class ListNode {</p>
                                     <p>int data;</p>
-                                    <p>Node next;</p>
-                                    <p>Node(int data){this.data=data;}</p>
+                                    <p>ListNode next;</p>
+                                    <p>ListNode(int data){this.data=data;}</p>
                                 <p>}</p>
                                 <p>/*Solution :*/</p>
                                 <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
-                                        <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
-                                            <p>fast=fast.next.next;</p>
+                                    <p>public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {</p>
+                                        <p>for (int i = 0; i < b; ++i, end = end.next) { // locate b upon termination of the loop.</p>
+                                        <p>if (i == a - 1)  start = end; // locate the node right before a.</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
+                                        <p>start.next = list2; 
+                                          <p>  // connect the node right before a to the head of list2, hence cut off a from list1.</p>
+                                        <p>while (list2.next != null)  list2 = list2.next;  // traverse till the end of list2.</p>
+                                        <p>list2.next = end.next; // connect end of list2 to the node right after b.</p>
+                                        <p></p>
+                                        
+                                        <p>return list1;</p>
                                     <p>}</p>
                                 <p>}</p>
-                                <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <h3>ANALYSIS :</h3>
+                        <p>Time : O(n) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>
@@ -103,7 +105,7 @@
                         <p>Kolkata<br />
                         West Bengal, India</p>
                     </section>
-                    
+                   
                     <section>
                         <h3>Email</h3>
                         <p><a href="#">info@untitled.tld</a></p>

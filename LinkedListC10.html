@@ -48,48 +48,57 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Impementing Queue</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>Implement the queue data structure using Linked List.</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
-                        <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
-                        </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                        <p>we maintain two pointers, front, and rear. The front points to the first item of the queue and rear points to the last item.
+                            <p>
+                            enQueue(): This operation adds a new node after the rear and moves the rear to the next node.
+                            <p>
+                            deQueue(): This operation removes the front node and moves the front to the next node.</p>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
                         
-                        
-                            <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
+                            <code class="language-java"><p>/* Linked list Node*/</p>
                                 <p>class Node {</p>
                                     <p>int data;</p>
                                     <p>Node next;</p>
                                     <p>Node(int data){this.data=data;}</p>
                                 <p>}</p>
-                                <p>/*Solution :*/</p>
-                                <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
-                                        <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
-                                            <p>fast=fast.next.next;</p>
+                                
+                                <p>class Queue{</p>
+                                    <p>Node front,rear;</p>
+                                    <p>public Queue() { this.front = this.rear = null; }</p>
+                                        <p>void enqueue(int key){</p>
+                                        <p>Node temp = new Node(key); // Create a new LL node</p>
+                                        <p>if (this.rear == null) {</p>
+                                        <p>this.front = this.rear = temp;</p>
+                                            <p>return; </p>
+                                            <p>}</p>
+                                            <p>this.rear.next = temp</p>
+                                            <p>this.rear = temp;</p>
+                                            <p>}</p>
+                                            <p>void dequeue(){</p>
+                                                <p>if (this.front == null)  return;
+                                                    <p>//If queue is empty, return NULL.</p>
+                                                    <p>Node temp = this.front;
+                                                       <p> this.front = this.front.next;</p>
+                                                       <p>if (this.front == null)
+                                                        <p>this.rear = null;</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
-                                    <p>}</p>
+                                        
                                 <p>}</p>
-                                <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <h3>ANALYSIS :</h3>
+                        <p>Time : O(1) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>

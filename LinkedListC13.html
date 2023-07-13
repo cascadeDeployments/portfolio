@@ -48,25 +48,24 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Swap in pairs</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>Given a linked list, swap every two adjacent nodes and return its head. 
+                            You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
-                        <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
+                        <p>we have used a two pointer approach.
+                            One for each pair of nodes.
                         </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
                         
-                        
-                            <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
+                            <code class="language-lava"><p>/* Linked list Node*/</p>
                                 <p>class Node {</p>
                                     <p>int data;</p>
                                     <p>Node next;</p>
@@ -74,22 +73,28 @@
                                 <p>}</p>
                                 <p>/*Solution :*/</p>
                                 <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
-                                        <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
-                                            <p>fast=fast.next.next;</p>
+                                    <p>public Node swapPairs(Node head){ </p>
+                                        <p>if(head==null || head.next==null)   return head;   //base case</p>
+                                        <p>Node dummy=new Node();
+                                            <p>Node prev=dummy;
+                                            <p>Node curr=head;</p>
+                                        
+                                        <p>while(curr!=null && curr.next!=null){</p>
+                                            <p>prev.next=curr.next;</p>
+                                            <p>curr.next=prev.next.next;
+                                               <p> prev.next.next=curr;</p>
+                                            <p>prev=curr;
+                                               <p> curr=curr.next;</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
+                                        
+                                        <p>return dummy.next;</p>
                                     <p>}</p>
                                 <p>}</p>
+                                
                                 <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <p>Time : O(n) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>
@@ -103,7 +108,7 @@
                         <p>Kolkata<br />
                         West Bengal, India</p>
                     </section>
-                    
+                   
                     <section>
                         <h3>Email</h3>
                         <p><a href="#">info@untitled.tld</a></p>

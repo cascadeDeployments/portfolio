@@ -48,48 +48,68 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Impementing Stack</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>Implement the stack data structure using Linked List.</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
-                        <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
-                        </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                        <p>In the stack Implementation, a stack contains a top pointer. which is the “head” of the stack where pushing and popping items happens at the head of the list. 
+                            The first node has a null in the link field and second node-link has the first node address in the link field and so on and the last node address is in the “top” pointer.
+                            <p>
+                                push(): Insert a new element into the stack i.e just insert a new element at the beginning of the linked list.
+                                <p>
+                                pop(): Return the top element of the Stack i.e simply delete the first element from the linked list.
+                                <p>
+                                peek(): Return the top element.</p>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
                         
-                        
-                            <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
+                            <code class="language-java"><p>/* Linked list Node*/</p>
                                 <p>class Node {</p>
                                     <p>int data;</p>
                                     <p>Node next;</p>
                                     <p>Node(int data){this.data=data;}</p>
                                 <p>}</p>
-                                <p>/*Solution :*/</p>
-                                <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
-                                        <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
-                                            <p>fast=fast.next.next;</p>
+                                
+                                <p>class Stack{</p>
+                                    <p>Node top;</p>
+                                    <p>public Stack() { this.top = null; }</p>
+                                        <p>void push(int key){</p>
+                                        <p>Node temp = new Node(); // Create a new LL node</p>
+                                        <p>if (temp == null) {</p>
+                                        <p>System.out.print("\nHeap Overflow");</p>
+                                            <p>return; </p>
+                                            <p>}</p>
+                                            <p>temp.data = x;</p>
+                                            <p>temp.link=top;</p>
+                                            <p>top=temp;</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
-                                    <p>}</p>
+                                        <p>void pop(){</p>
+                                                <p>if (top == null) {}
+                                                    <p>System.out.print("\nStack Underflow");</p>
+                                                    <p>return;
+                                                    <p> }</p>
+                                                       <p>// update the top pointer to point to the next node
+                                                        <p>top = (top).link;</p>
+                                        <p>}</p>
+                                        <p>public boolean isEmpty() { return top == null; }</p>
+                                        <p>public int peek(){</p>
+                                            <p>if(isEmpty())    return;</p>
+                                        <p>else {
+                                            <p>System.out.println("Stack is empty");
+                                            <p>return -1;</p>
+                                            <p>}</p>
+                                        
                                 <p>}</p>
-                                <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <h3>ANALYSIS :</h3>
+                        <p>Time : O(1) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>

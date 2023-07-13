@@ -48,23 +48,22 @@
                     <section class="post">
                         <header class="major">
                             <h1>Linked List </h1>
-                            <p>Middle of a LinkedList</p>
+                            <p>Detect a cycle.</p>
                         </header>
                         <div class="image main"><img src="images/coder.jpg" alt="" /></div>
                         <h3>QUESTION :</h3>
                         <p> </p>
-                        <p>Given the head of a singly linked list, return the middle node of the linked list.
-                           <p> If there are two middle nodes, return the second middle node.</p>
+                        <p>Given head, the head of a linked list, determine if the linked list has a cycle in it.
+                            There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+                            Return true if there is a cycle in the linked list. Otherwise, return false.</p>
                         
-                        <h3>LOGIC : </h3>
+                        <h3>LOGIC :</h3>
                         <p> </p>
                         <p>We have used Hare-Tortoise algorithm. A Hare-Tortoise algorithm is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds,
-                            one moving twice as fast as the other one.
-                        </p>
-                        <P></P>
-                        <h3>CODE : </h3>
+                            one moving twice as fast as the other one.</p>
+                        <p></p>
+                        <h3>CODE :</h3>
                         <p> </p>
-                        
                         
                             <div class="line 1"> <code class="plain"><p>/* Linked list Node*/</p>
                                 <p>class Node {</p>
@@ -74,22 +73,23 @@
                                 <p>}</p>
                                 <p>/*Solution :*/</p>
                                 <p>class Solution{</p>
-                                    <p>public Node midofLL(Node head){</p>
+                                    <p>public boolean detectLoop(Node head){   //  Floyd cycle detection algorithm</p>
                                         <p>if(head==null)   return head;   //base case</p>
-                                        <p>Node fast=head;</p>
-                                        <p>Node slow=head;</p>
-                                        <p>while(fast!=null && fast.next!=null){</p>
-                                            <p>slow=slow.next;</p>
+                                        <p>Node fast = head, slow = head;</p>
+                                        
+                                        <p>while(fast!=null && fast.next!=null ){</p>
                                             <p>fast=fast.next.next;</p>
+                                            <p>slow=slow.next;</p>
+                                            <p>if(fast==slow)  return true;</p>
                                         <p>}</p>
-                                        <p>return slow;</p>
+                                        
+                                        <p>return false;</p>
                                     <p>}</p>
                                 <p>}</p>
                                 <h3>ANALYSIS :</h3>
-                                <p>Time : O(n) </p>
-                                <p>Space : O(1) </p>
+                        <p>Time : O(n) </p>
+                        <p>Space : O(1) </p>
                         </code>
-                       
                     </section>
 
             </div>
